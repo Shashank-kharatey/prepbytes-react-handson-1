@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import "./App.css";
+import React, { useState } from "react";
+import FuncComp from "./Component/FuncComp";
+import ClsComp from "./Component/ClsComp";
+
+const App=()=>{
+
+  const [fshow,fshowpost]=useState(false)
+  const Fbtn=()=>{
+    fshowpost(!fshow)
+  }
+  const [cshow,cshowpost]=useState(false)
+  const Cbtn=()=>{
+      cshowpost(!cshow)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <div>
+    <div>
+      <h1 id="head">Styles using Functional and class Component</h1>
     </div>
-  );
+    <div className="btns">
+      <button onClick={Fbtn} className="btn">To See Styling functional Component</button>
+      <button onClick={Cbtn} className="btn">To See Styling Class component</button>
+    </div>
+      <div id="flexdiv">
+        {fshow ? <FuncComp/> : ""}
+        {cshow ? <ClsComp/> : ""}
+      </div>
+  </div>
+)
 }
-
 export default App;
